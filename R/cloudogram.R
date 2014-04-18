@@ -2,7 +2,7 @@ setwd("/Users/michaelharvey/Documents/Simulations/cloudogram")
 getwd()
 
 # Script: cloudogram.r 
-# By Michael G. Harvey 
+# By: Michael G. Harvey 
 # Date: 17 April 2014 
 
 # A script to overlay multiple phylogenetic trees to get a feel for the tree depths and topologies.
