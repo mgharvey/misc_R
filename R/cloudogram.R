@@ -1,22 +1,27 @@
 setwd("/Users/michaelharvey/Documents/Simulations/cloudogram")
 getwd()
 
-##################################
-### cloudogram.r ################
-### By Michael G. Harvey #########
-### 17 April 2014 ################
-##################################
+# Script: cloudogram.r 
+# By Michael G. Harvey 
+# Date: 17 April 2014 
 
-library(ape)
-library(plyr)
+# A script to overlay multiple phylogenetic trees to get a feel for the tree depths and topologies.
+#
+# MAJOR CAVEATS: This script does NOT reorder the tips, so if the taxa do not appear in the same
+# order in the trees they will be out of order on the plot. Also, the heights of the trees are 
+# nearly on the same scale, but there seems to be some very small variation across trees in the y 
+# scale. Really this script should just be used for eyeballing patterns at this point.
 
-### Read files ###
+require(ape)
+require(plyr)
+
+# Read files 
 
 trees <- read.tree("trees.tre") # read in treefile
 
 par(mfrow=c(1,1), new=F)
 
-### Get tree depths ###
+# Get tree depths 
 
 depthlist <- rep(0, 100)
 for (i in 1:length(trees)) {
@@ -27,11 +32,12 @@ for (i in 1:length(trees)) {
 } 
 maxdepth <- max(depthlist)
 
-### Plot trees ###
+# Plot trees 
 
 for (i in 1:length(trees)) {
 	tree <- trees[[i]] # pull out one tree
-	code <- ifelse(is.monophyletic(tree, c(1,2)), ifelse(is.monophyletic(tree, c(3,4)), ifelse(is.monophyletic(tree, c(5,6)), ifelse(is.monophyletic(tree, c(7,8)), T, F), F), F), F) # check for monophyly of all 4 species 
+	#code <- ifelse(is.monophyletic(tree, c(1,2)), ifelse(is.monophyletic(tree, c(3,4)), ifelse(is.monophyletic(tree, c(5,6)), ifelse(is.monophyletic(tree, c(7,8)), T, F), F), F), F) # check for monophyly of all 4 species 
+	code <- ifelse(depthlist[i] > 10.5, F, T)
 	col <- ifelse(code == T, "black", "red") # color based on some criterion (in this case monophyly of each species)
 	par(mai=c(0.5,0.5,(maxdepth+0.5)-depthlist[i],0.5))
 	plot(tree, type="cladogram", direction = "downwards", y.lim=c(0, depthlist[i]), edge.width=0.5, show.tip.label=F, edge.color=col)
