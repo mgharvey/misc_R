@@ -1,4 +1,4 @@
-<img src="./figure/cloud.png" alt="cloud" style="width: 40%;"/>
+<img src="./figure/cloud.png" alt="cloud" style="width: 10%; height: 10%"/>
 
 INTRODUCTION
 -------
