@@ -1,4 +1,4 @@
-![](./figure/cloud.png)
+![](./figure/cloud.png =100x)
 
 INTRODUCTION
 -------
