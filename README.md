@@ -1,3 +1,5 @@
+![](cloud.pdf)
+
 INTRODUCTION
 -------
 
