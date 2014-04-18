@@ -1,4 +1,4 @@
-![](./figure/cloud.png =100x)
+<img src="./figure/cloud.png" alt="cloud" style="width: 200px;"/>
 
 INTRODUCTION
 -------
