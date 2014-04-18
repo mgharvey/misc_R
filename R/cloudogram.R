@@ -36,10 +36,10 @@ maxdepth <- max(depthlist)
 
 for (i in 1:length(trees)) {
 	tree <- trees[[i]] # pull out one tree
-	#code <- ifelse(is.monophyletic(tree, c(1,2)), ifelse(is.monophyletic(tree, c(3,4)), ifelse(is.monophyletic(tree, c(5,6)), ifelse(is.monophyletic(tree, c(7,8)), T, F), F), F), F) # check for monophyly of all 4 species 
-	code <- ifelse(depthlist[i] > 10.5, F, T)
+	code <- ifelse(is.monophyletic(tree, c(1,2)), ifelse(is.monophyletic(tree, c(3,4)), ifelse(is.monophyletic(tree, c(5,6)), ifelse(is.monophyletic(tree, c(7,8)), T, F), F), F), F) # check for monophyly of all 4 species 
+	#code <- ifelse(depthlist[i] > 10.5, F, T)
 	col <- ifelse(code == T, "black", "red") # color based on some criterion (in this case monophyly of each species)
-	par(mai=c(0.5,0.5,(maxdepth+0.5)-depthlist[i],0.5))
+	par(fig=c(0.1,0.8,0.1,0.1+((depthlist[i]/maxdepth)*0.8)), mar=c(1,1,0.1,1))
 	plot(tree, type="cladogram", direction = "downwards", y.lim=c(0, depthlist[i]), edge.width=0.5, show.tip.label=F, edge.color=col)
 	par(new=T) # keep using same plot window
 }
