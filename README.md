@@ -1,4 +1,4 @@
-![](cloud.pdf)
+![](./figure/cloud.pdf)
 
 INTRODUCTION
 -------
