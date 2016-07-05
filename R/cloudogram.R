@@ -17,7 +17,7 @@ require(plyr)
 
 # Read files 
 
-trees <- read.tree("trees.tre") # read in treefile
+trees <- read.tree("trees.tre") # read in treefile, example available in ../data/
 
 par(mfrow=c(1,1), new=F)
 
